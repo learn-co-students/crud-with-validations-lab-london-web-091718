@@ -1,0 +1,7 @@
+<h1>Edit <%= @song.title %></h1>
+
+<%= link_to "Cancel", songs_path %>
+
+<%= render "form" %>
+
+<%= link_to "Delete", @song, method: :delete, data: { confirm: "Really?" } %>

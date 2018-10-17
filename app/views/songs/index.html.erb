@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <title>All Songs</title>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class='title'>All Songs</h1>
+    </div>
+    <hr>
+    <div class="container">
+      <%= link_to "Create New Song", new_song_url, :class => 'button' %>
+    </div>
+    <hr>
+    <div class="container">
+
+      <% @songs.each do |song| %>
+        <table class="table">
+          <tbody>
+            <tr>
+              <%= link_to song.title, song_url(song) %>
+            </tr>
+          </tbody>
+        </table>
+
+      <% end %>
+    </div>
+
+  </body>
+
+</html>

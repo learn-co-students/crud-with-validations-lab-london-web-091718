@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Song</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="title">Edit Song</h1>
+    </div>
+    <hr>
+
+    <% if @song.errors.any? %>
+      <div id="error_explanation">
+        <div class="container">
+          <h2>There are some errors:</h2>
+        </div>
+        <ul>
+          <% @song.errors.full_messages.each do |message| %>
+            <div class="container notification">
+              <li>
+                <%= message %>
+              </li>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_for @song, :html => {:class => 'container'} do |f| %>
+    <div class="field">
+      <%= f.label "Title:", :class => 'label' %>
+      <div class="control">
+        <%= f.text_field :title, :class => 'input' %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :released %>
+      <%= f.label "released", :value => 'released' %>
+    </div>
+    <div class="field">
+      <%= f.label "Release Year:", :class => 'label' %>
+      <%= f.number_field :release_year, :class => 'input' %>
+    </div>
+    <div class="field">
+      <%= f.label "Artist Name:", :class => 'label' %>
+      <%= f.text_field :artist_name, :class => 'input' %>
+    </div>
+    <div class="field">
+      <%= f.label "Genre:", :class => 'label' %>
+      <%= f.text_field :genre, :class => 'input' %>
+    </div>
+    <hr>
+
+    <%= f.submit :class => 'button' %>
+
+    <%= link_to "Cancel", song_url(@song), :class => 'button' %>
+  <% end %>
+
+  <div class="container">
+    <%= form_tag song_path, method: "delete" do %>
+    <%= submit_tag "Delete Song", :class => 'button' %>
+  <% end %>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @song.title %></title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title"><%= @song.title %>,
+        <%= @song.release_year %></h1>
+    </div>
+    <hr>
+
+    <div class="container">
+      <ul>
+
+        <% if @song.released %>
+          <li>Released: Yes</li>
+        <% end %>
+        <li>Release Year:
+          <%= @song.release_year %></li>
+        <li>Artist Name:
+          <%= @song.artist_name %></li>
+        <li>Genre:
+          <%= @song.genre %></li>
+      </ul>
+    </div>
+    <hr>
+    <div class="container">
+      <%= link_to "Go Back", songs_url, :class => 'button' %>
+
+      <%= link_to "Edit Song", edit_song_url, :class => 'button' %>
+  </div>
+</div>
+</body>
+</html>

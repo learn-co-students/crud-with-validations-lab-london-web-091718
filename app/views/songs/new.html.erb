@@ -1,3 +1,13 @@
+# _form partial
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <%= form_for @song do |f| %>
 <%= f.text_field :title %>
 <%= f.check_box :released %>

@@ -16,6 +16,7 @@ class SongsController < ApplicationController
       if @song.valid?
         redirect_to song_path(@song)
       else
+        flash[:errors] = @song.errors.full_messages
         render :edit
       end
   end

@@ -1,0 +1,11 @@
+<h1> Edit Song </h1>
+
+<p><%= @song.title %></p>
+
+<%= link_to "Cancel", song_path(@song) %>
+
+<%= render "form" %>
+
+<%= form_tag song_path, method: "delete" do %>
+  <%= submit_tag "Delete Song" %>
+<% end %>
